@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    
+    
+    <form method="POST">
+    {% csrf_token %}
+    <h2>¿Desea eliminar este post?</h2>    
+        
+        <button type="submit" class="save btn btn-danger center">Si, Eliminar</button>
+        <a class="btn btn-default" href="{% url 'post_list' %}"></a> cancelar</a>
+    </form>
+
+{% endblock %}
