@@ -8,13 +8,15 @@
 <br>
 
     
-    
+    <div class="fondograd">
     <form method="POST">
     {% csrf_token %}
-    <h2>¿Desea eliminar este post?</h2>    
+    <h2 style="color: aliceblue;">¿Desea eliminar este post?</h2>    
         
-        <button type="submit" class="save btn btn-danger center">Si, Eliminar</button>
-        <a class="btn btn-default" href="{% url 'post_list' %}"></a> cancelar</a>
+       <button type="submit" class="save btn btn-danger center">Si, Eliminar</button>
+       <br>
+      <button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Cancelar</a> </button>
+       <br>
     </form>
-
+</div>
 {% endblock %}

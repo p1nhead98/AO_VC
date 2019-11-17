@@ -4,9 +4,11 @@
 <br><br>
     <div class="container">
         <div class="row"><!--BANNNER-->
-<h1><a class="btn btn-success" href="{% url 'post_edit' pk=post.pk %}" ><span class="glyphicon glyphicon-pencil"></span></a></h1>
-<h1><a class="btn btn-danger" href="{% url 'post_delete' pk=post.pk %}" ><span class="glyphicon glyphicon-pencil"></span></a></h1>
-            <div class="col-sm-12 ">
+            <div class="col-sm-12 container">
+<h1><a class="btn btn-success " href="{% url 'post_edit' pk=post.pk %}" ><span class="glyphicon glyphicon-pencil"> Editar Post</span></a></h1>
+<h1><a class="btn btn-danger " href="{% url 'post_delete' pk=post.pk %}" style="position: static;" ><span class="glyphicon glyphicon-remove-circle">Eliminar Post</span></a></h1> 
+            </div>            
+<div class="col-sm-12 ">
                     
                 {% if post.imagenPortada %}
                 <img src="{{post.imagenPortada.url}}" class=" center baner">
