@@ -27,7 +27,7 @@ y al principio de la pagina se encuentran dos botones "Editar Post" y "Eliminar 
 -------------------------------------------------------------------------------------------------------------------------
 Editar Post: 
 Esta pagina es seleccionada a traves del boton de "Editar Post" en la pagina de algun juego subido, es igual al formulario para
-subir un nuevo proyecto, y cualquier campo puede ser modificado, tiene el boton de confirmar para guardar los cambios como el de cancelar
+subir un nuevo proyecto, y cualquier campo puede ser modificado, tiene el boton de "Subir" para guardar los cambios como el de "Cancelar"
 que redireccionara a la pagina de index.
 --------------------------------------------------------------------------------------------------------------------------
 Eliminar Post:
