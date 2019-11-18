@@ -15,7 +15,7 @@
   <title>Amoeba free one page responsive bootstrap site template</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css"  href="{% static 'css/isotope.css' %}" media="screen"/>
   <link rel="stylesheet" href="{% static 'js/fancybox/jquery.fancybox.css' %}" type="text/css" media="screen"/>
   <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -47,8 +47,9 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
           <li class="active"><a href="/">Inicio</a></li>
+          {% if user.is_authenticated %}
           <li><a href="{% url 'post_new' %}">Subir Proyecto</a></li>
-         
+          {% endif %}
         </ul>
       </div>
       <!--/.navbar-collapse -->

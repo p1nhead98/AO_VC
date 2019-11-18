@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <br>
 <br>
 <br>
@@ -11,8 +12,26 @@
     <h2>Subir Nuevo Proyecto</h2>
     <form method="POST" enctype="multipart/form-data" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        
-        <button type="submit" class="save btn btn-success center">Subir</button>
+        <p>Los campos con * son obligaorios.</p>
+       
+     
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="save btn btn-success center">Subir</button>
+            </div>
+            <div class="col-md-6">
+                <button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Cancelar</a> </button>
+            </div>
+        </div>
+        <br>
     </form>
+    {% else %}
+    <br><br><br><br><br>
+<div class="fondograd">
+    <h2 style="color: aliceblue;"> Error Volver a la Pagina Principal </h2>
+</div>
+<button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Volver</a> </button>
+
+    {% endif %}
 
 {% endblock %}

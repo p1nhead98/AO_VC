@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <br>
 <br>
 <br>
@@ -19,4 +20,12 @@
        <br>
     </form>
 </div>
+{% else %}
+<br><br><br><br><br>
+<div class="fondograd">
+    <h2 style="color: aliceblue;"> Error Volver a la Pagina Principal </h2>
+</div>
+<button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Volver</a> </button>
+
+{% endif %}
 {% endblock %}

@@ -14,7 +14,7 @@ class Post(models.Model):
     imagen2 = models.ImageField(upload_to='images/',blank=True,  null=True)
     imagen3 = models.ImageField(upload_to='images/',blank=True,  null=True)
     imagenfondo = models.ImageField(upload_to='images/', blank=True, null= True)
-    gameForWindows = models.FileField(upload_to='games/', blank=True, null=True)
+    gameForWindows = models.FileField(upload_to='games/',blank=True, null=True)
 
     created_date = models.DateTimeField(
             default=timezone.now)

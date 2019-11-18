@@ -13,7 +13,7 @@
 body{
     height: 100%;
     margin: 0;
-    background-repeat: no-repeat;
+    
     background-attachment: fixed;
 }
 
@@ -30,12 +30,7 @@ body{
 
 
 
-.baner {
-   min-width: auto;
-   min-height: auto;
-   max-width: 1200px;
-   max-height: auto;
-}
+
 .center {
     display: block;
     margin-left: auto;

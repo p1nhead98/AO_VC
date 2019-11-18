@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
             'imagen2': 'ScreenShoot n°1',
             'imagen3': 'ScreenShoot n°2',
             'imagenfondo': 'Imagen de Fondo de la pagina',
-            'gameForWindows':'Juego'
+            'gameForWindows':'Juego*'
 
         }
         widgets={
