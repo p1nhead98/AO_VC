@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
+{% ifequal request.user post.author %}
 <br>
 <br>
 <br>
@@ -23,9 +23,9 @@
 {% else %}
 <br><br><br><br><br>
 <div class="fondograd">
-    <h2 style="color: aliceblue;"> Error Volver a la Pagina Principal </h2>
+    <h2 style="color: aliceblue;"> Error: No esta autorizado para eliminar este post </h2>
 </div>
 <button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Volver</a> </button>
 
-{% endif %}
+{% endifequal %}
 {% endblock %}

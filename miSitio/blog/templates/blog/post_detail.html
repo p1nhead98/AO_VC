@@ -3,7 +3,7 @@
 <br><br>
 <br><br>
         <div class="container">
-        {% if user.is_authenticated %}
+        {% ifequal request.user post.author %}
 
         <div class="row align-center">
             <div class="col-sm-6 ">
@@ -13,7 +13,7 @@
                 <h1><a class="btn btn-danger " href="{% url 'post_delete' pk=post.pk %}" style="position: static;" ><span class="glyphicon glyphicon-remove-circle"> Eliminar Post</span></a></h1> 
             </div>
         </div>  
-        {% endif %}
+        {% endifequal %}
         <div class="row">          
             <div class="col-sm-12 ">
                     
@@ -29,7 +29,7 @@
                     <h2 class="titulo" style="color: aliceblue;">{{ post.title }}</h2>
                     <br>
             </div>
-            <div class="col-sm-8 postbody" >
+            <div class="col-sm-12 postbody" >
                     <p style="color: aliceblue;">{{post.shortext|linebreaksbr}}</p>
                     <br>
                     <p style="color: aliceblue;">{{ post.text|linebreaksbr }}</p>
@@ -38,9 +38,13 @@
                 {% if post.imagen1 %}
                 <img src={{post.imagen1.url}} class="borde center screenshoots">
                 {% endif %}
+            </div>
+            <div class="col-sm-4 postbody">
                 {% if post.imagen2 %}
                 <img src={{post.imagen2.url}} class="borde center screenshoots">
                 {% endif %}
+            </div>
+            <div class="col-sm-4 postbody">
                 {% if post.imagen3 %}
                 <img src={{post.imagen3.url}} class="borde center screenshoots">
                 {% endif %}
