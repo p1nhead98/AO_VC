@@ -3,7 +3,7 @@
 <br><br>
 <br><br>
         <div class="container">
-        {% ifequal request.user post.author %}
+        {% ifequal request.user post.author  %}
 
         <div class="row align-center">
             <div class="col-sm-6 ">
@@ -13,6 +13,14 @@
                 <h1><a class="btn btn-danger " href="{% url 'post_delete' pk=post.pk %}" style="position: static;" ><span class="glyphicon glyphicon-remove-circle"> Eliminar Post</span></a></h1> 
             </div>
         </div>  
+        {% else %}
+        {% if request.user.is_staff %}
+        <div class="row align-center">
+        <div class="col-sm-6 " >
+            <h1><a class="btn btn-danger " href="{% url 'post_delete' pk=post.pk %}" style="position: static;" ><span class="glyphicon glyphicon-remove-circle"> Eliminar Post</span></a></h1> 
+        </div>
+       </div>  
+       {% endif %}
         {% endifequal %}
         <div class="row">          
             <div class="col-sm-12 ">

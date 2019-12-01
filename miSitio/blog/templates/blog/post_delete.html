@@ -21,11 +21,26 @@
     </form>
 </div>
 {% else %}
-<br><br><br><br><br>
-<div class="fondograd">
-    <h2 style="color: aliceblue;"> Error: No esta autorizado para eliminar este post </h2>
+{% if request.user.is_staff %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    
+    <div class="fondograd">
+    <form method="POST">
+    {% csrf_token %}
+    <h2 style="color: aliceblue;">¿Desea eliminar este post?</h2>    
+        
+       <button type="submit" class="save btn btn-danger center">Si, Eliminar</button>
+       <br>
+      <button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Cancelar</a> </button>
+       <br>
+    </form>
 </div>
-<button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Volver</a> </button>
+{% endif %}
 
 {% endifequal %}
 {% endblock %}
