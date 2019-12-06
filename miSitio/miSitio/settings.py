@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,6 +54,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'miSitio.urls'
+LOGIN_REDIRECT_URL ='/'
+
 
 TEMPLATES = [
     {
@@ -67,6 +72,12 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    
+    'django.core.context_processors.request',
+    
+)
 
 WSGI_APPLICATION = 'miSitio.wsgi.application'
 
@@ -122,3 +133,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
+
+#Autorizar la costomizacion del AbstractUser

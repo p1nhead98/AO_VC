@@ -1,10 +1,18 @@
 {% extends 'blog/base.html' %}
+{% block title %}
+<title>{{post.title}} por {{request.user}}</title>
+{% endblock %}
+{% block bg %}
+style="background-image: url('{{post.imagenfondo.url}}');background-size : contain;"
+{% endblock %}
 {% block content %}
 <br><br>
 <br><br>
         <div class="container">
         {% ifequal request.user post.author  %}
 
+        
+            
         <div class="row align-center">
             <div class="col-sm-6 ">
                 <h1><a class="btn btn-success " href="{% url 'post_edit' pk=post.pk %}" ><span class="glyphicon glyphicon-pencil"> Editar Post</span></a></h1>
@@ -16,6 +24,9 @@
         {% else %}
         {% if request.user.is_staff %}
         <div class="row align-center">
+                <div class="col-sm-6 ">
+                        <h1><a class="btn btn-success " href="{% url 'post_edit' pk=post.pk %}" ><span class="glyphicon glyphicon-pencil"> Editar Post</span></a></h1>
+                    </div>
         <div class="col-sm-6 " >
             <h1><a class="btn btn-danger " href="{% url 'post_delete' pk=post.pk %}" style="position: static;" ><span class="glyphicon glyphicon-remove-circle"> Eliminar Post</span></a></h1> 
         </div>
@@ -26,7 +37,7 @@
             <div class="col-sm-12 ">
                     
                 {% if post.imagenPortada %}
-                <img src="{{post.imagenPortada.url}}" class="center img-responsive" style="max-width: 900px;">
+                <img src="{{post.imagenPortada.url}}" class="center img-responsive">
                 {% endif %}
             </div>
         </div>
@@ -44,17 +55,17 @@
             </div>
             <div class="col-sm-4 postbody">
                 {% if post.imagen1 %}
-                <img src={{post.imagen1.url}} class="borde center screenshoots">
+                <img src={{post.imagen1.url}} class="borde center screenshoots img-responsive">
                 {% endif %}
             </div>
             <div class="col-sm-4 postbody">
                 {% if post.imagen2 %}
-                <img src={{post.imagen2.url}} class="borde center screenshoots">
+                <img src={{post.imagen2.url}} class="borde center screenshoots img-responsive">
                 {% endif %}
             </div>
             <div class="col-sm-4 postbody">
                 {% if post.imagen3 %}
-                <img src={{post.imagen3.url}} class="borde center screenshoots">
+                <img src={{post.imagen3.url}} class="borde center screenshoots img-responsive">
                 {% endif %}
             </div>
         </div>

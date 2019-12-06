@@ -1,37 +1,50 @@
 {% extends 'blog/base.html' %}
+{% block title %}
+<title>Nuevo Proyecto</title>
+{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated %}<!--Se comprueba que un usuario haya iniciado sesion para poder crear un post-->
 <br>
 <br>
 <br>
 <br>
 <br>
 
-    
+<div class="col-sm-6">
     <h2>Subir Nuevo Proyecto</h2>
+    <!--Formulario para Editar, orear un proyecto-->
     <form method="POST" enctype="multipart/form-data" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <p>Los campos con * son obligaorios.</p>
-       
-     
+        <p>Los campos con * son obligaorios.</p> 
+    <!--DIV para acomodar botones aceptar/cancelar-->
         <div class="row">
             <div class="col-md-6">
                 <button type="submit" class="save btn btn-success center">Subir</button>
             </div>
-            <div class="col-md-6">
-                <button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Cancelar</a> </button>
+            <div class="col-md-6">            
+                <button class="center"> <a class="btn  " style="color: rgb(0, 0, 0);" href="{% url 'post_list' %}"> Cancelar</a> </button>
             </div>
         </div>
         <br>
     </form>
-    {% else %}
-    <br><br><br><br><br>
-<div class="fondograd">
-    <h2 style="color: aliceblue;"> Error: Usted no esta autorizado para editar este post  </h2>
 </div>
+<div class="col-sm-6 text-center">
+    <p>¿Cómo se verá el proyecto?</p>
+    <img src="/media/web/newpost.png"  class="img-responsive center" alt=""> 
+</div>
+
+
+
+
+{% else %}<!--ELSE en caso de que no se encuentre un usuario que haya iniciado sesion, y se haya ingresado a post/new-->
+<br><br><br><br><br>
+
+
+<h2 > Error: Volver a la pagina principal  </h2>
+<br>
 <button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Volver</a> </button>
 
-    {% endif %}
+{% endif %}
 
 {% endblock %}

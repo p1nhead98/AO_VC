@@ -1,12 +1,32 @@
 {% extends 'blog/base.html' %}
+{% block title %}
+<title>Registro de usuarios</title>
+{% endblock %}
 {% block content %}
+
 <br><br><br><br>
-<h2>INICIA SESIOAAAAAAAAN</h2>
+<br>
+<div class="col-sm-6">
+<h2>Registrar Usuario</h2>
 <form method = "POST">
     {{ form.as_p }}
     {% csrf_token %}
+    
     <button type="submit">Registrar</button>
 </form>
 <hr/>
-<a href="/login">Iniciar Sesion</a>
+<p>¿Ya tienes una cuenta? <a href="/login">inicie sesión ¡aqui!</a></p>
+</div>
+<div class="col-sm-6 text-center align-items-center" >
+    <img src="media/web/logogif.gif" class="img-responsive center " width="300px" height="300px" alt="">
+    <p>¿Quién puede registrarse?</p>
+    
+    <p>  Somos una web centrada en potenciar a los desarrolladores independientes de videojuegos, dándoles un espacio para poder compartir sus creaciones a un público, aunque no solo videojuegos puedes subir, es bienvenido cualquier otro tipo de contenido, tal como diseños, herramientas para el desarrollo, juegos de mesa, etc. </p>
+    <br>
+    <p>¡Siéntete libre de poder crear y compartir con el mundo!</p>
+        
+</div>
+
+
+
 {% endblock %}

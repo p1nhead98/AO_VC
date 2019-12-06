@@ -1,0 +1,35 @@
+
+{% extends 'blog/base.html' %}
+{% block title %}
+<title>Perfil - {{request.user}}</title>
+{% endblock %}
+{% block content %}
+
+<br><br><br><br><br>
+
+<div class="col-sm-6">
+    <h1>Perfil</h1>
+    <img src="{{profileimg.profilepicture.url}}" alt="">
+    <p>Nombre de usuario: <b>{{request.user.get_username}}</b></p>
+    {% if request.user.get_full_name %}
+    <p>Nombre completo: <b>{{request.user.get_full_name}}</b></p>
+    {% else %}
+    <p>Nombre completo: No sé a ingresado  </p>
+    {% endif %}
+    <p>Correo Electronico: <b>{{request.user.email}}</b></p>
+    {% if request.user.is_staff %}
+    <p>Tipo de cuenta: Administrador</p>
+    {% else %}
+    <p>Tipo de cuenta: Usuario</p>
+    {% endif %}
+    <p>Se unio en {{request.user.date_joined}}</p>
+</div>
+<div class="col-sm-6 text-center divlogin">
+    <h1><a href="{% url 'post_profile' %}">Ver tus proyectos</a></h1>
+</div>
+
+{% block juegos %}
+{% endblock %}
+
+
+{% endblock %}

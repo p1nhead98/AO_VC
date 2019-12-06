@@ -40,6 +40,12 @@
        <br>
     </form>
 </div>
+{% else %}
+<br><br><br><br><br>
+<h2 style="color: aliceblue;"> Error: Volver a la pagina principal  </h2>
+<br>
+<button class="center btn-primary"> <a class="btn  " style="color: aliceblue;" href="{% url 'post_list' %}"> Volver</a> </button>
+
 {% endif %}
 
 {% endifequal %}
